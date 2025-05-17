@@ -1,0 +1,103 @@
+You've been provided a large CSV file (potentially millions of rows) filled with historical sales data.  This file contains a variety of fields:
+
+- *Order ID:* (Unique identifier)
+- *Product ID:* (Unique identifier)
+- *Customer ID:* (Unique identifier)
+- *Product Name:*
+- *Category:*
+- *Region:*
+- *Date of Sale:*
+- *Quantity Sold:*
+- *Unit Price:*
+- *Discount:*
+- *Shipping Cost:*
+- *Payment Method:*
+- *Customer Name:*
+- *Customer Email:*
+- *Customer Address:*
+- *(Other relevant fields):* (e.g., product descriptions, customer demographics, marketing campaign details)
+
+Your challenge is to design and build a complete solution that encompasses the following requirements:
+
+### Requirements:
+
+*1. Data Loading and Database Design:*
+
+- *Normalization: Carefully design a normalized database schema to house the sales data effectively. Consider tables for orders, products, and potentially more.*
+- *Efficient Loading: Create a script to load the CSV data into your database. Ensure proper data validation and transformation throughout the process.*
+
+*2. Data Refresh Mechanism:*
+
+- Periodic Refresh: Set up a mechanism to refresh the database data daily or on-demand. This could involve overwriting existing data or appending new data while managing duplicates.*
+- Optional: Implement the data refresh mechanism as a background job or thread instead of handling in the API server application.*
+- Logging: Maintain logs of data refresh activities (successful and failed) to facilitate troubleshooting.*
+
+*3. RESTful API for Analysis:*
+
+- API Design: Craft a well-structured RESTful API with endpoints to trigger and retrieve the results of various calculations (detailed below).*
+- API to trigger the data refresh on demand
+
+*4. Core Analysis (Triggered via API):*
+
+Choose and implement *ONE* of the following core calculations.
+
+- *Revenue Calculations:*
+    - *Total Revenue:* (For a date range)
+    - *Total Revenue by Product:* (For a date range)
+    - *Total Revenue by Category:* (For a date range)
+    - *Total Revenue by Region:* (For a date range)
+    - *(Optional) Revenue Trends Over Time:* (Monthly, Quarterly, Yearly for a date range)
+    
+- *Top N Products:*
+    - *Overall:* (Based on quantity sold within a date range)
+    - *By Category:* (Based on quantity sold within a date range)
+    - *By Region:* (Based on quantity sold within a date range)
+
+- *Customer Analysis:*
+    - *Total Number of Customers:* (Within a date range)
+    - *Total Number of Orders:* (Within a date range)
+    - *Average Order Value:* (Within a date range)
+
+- *Other Calculations:*
+    - *Profit Margin by Product:* (Within a date range)
+    - *Customer Lifetime Value:* (Within a date range)
+    - *Customer Segmentation:* (Within a date range)
+
+### Considerations:
+
+- You can use any database of your choice
+- You are free to choose any backend language or framework you are comfortable with.
+- The use of code generation tools or AI-powered coding assistants is not permitted for this task.
+
+### Success Criteria:
+
+- *Efficiency:* Handling large datasets and optimizing performance.
+- *Code Quality:* Structure, modularity, readability, and adherence to best practices.
+- *Error Handling:* Graceful management of potential errors.
+- *Testing:* Thorough testing of calculations and reporting.
+- *Usability:* Intuitive command-line interface or API.
+- *Database Design:* Quality of schema and relationships.
+- *Data Refresh:* Reliability and robustness of the mechanism.
+- *API Design:* Adherence to RESTful principles and ease of use.
+
+### Deliverables:
+
+- URL for the final code of the API server in a public Github repository
+- A schema diagram of the database design (Pdf or Jpeg)
+- Clear instructions on how to execute the code step by step along with the prerequisites (Node Version, Python version etc .,) in the [readme.md](http://readme.md) file
+- A table in [readme.md](http://readme.md) with the list of APIs with the route, method, body and sample response and description
+
+### Additional Notes:
+
+- Focus on demonstrating your understanding of backend development principles, data modeling, API design, and data analysis.
+- Consider performance optimization techniques, especially if you are dealing with large datasets.
+- Clearly document your code and design decisions to explain your thought process.
+
+and the sample CSV file is 
+Order ID,Product ID,Customer ID,Product Name,Category,Region,Date of Sale,Quantity Sold,Unit Price,Discount,Shipping Cost,Payment Method,Customer Name,Customer Email,Customer Address
+1001,P123,C456,UltraBoost Running Shoes,Shoes,North America,2023-12-15,2,180.00,0.1,10.00,Credit Card,John Smith,johnsmith@email.com,"123 Main St, Anytown, CA 12345"
+1002,P456,C789,iPhone 15 Pro,Electronics,Europe,2024-01-03,1,1299.00,0.0,15.00,PayPal,Emily Davis,emilydavis@email.com,"456 Elm St, Otherville, NY 54321"
+1003,P789,C456,Levi's 501 Jeans,Clothing,Asia,2024-02-28,3,59.99,0.2,5.00,Debit Card,John Smith,johnsmith@email.com,"123 Main St, Anytown, CA 12345"
+1004,P123,C101,UltraBoost Running Shoes,Shoes,South America,2024-03-10,1,180.00,0.0,8.00,Credit Card,Sarah Johnson,sarahjohnson@email.com,"789 Oak St, New City, TX 75024"
+1005,P234,C789,Sony WH-1000XM5 Headphones,Electronics,North America,2024-04-22,1,349.99,0.15,12.00,PayPal,Emily Davis,emilydavis@email.com,"456 Elm St, Otherville, NY 54321"
+1006,P456,C101,iPhone 15 Pro,Electronics,Asia,2024-05-18,2,1299.00,0.05,20.00,Debit Card,Sarah Johnson,sarahjohnson@email.com,"789 Oak St, New City, TX 75024"

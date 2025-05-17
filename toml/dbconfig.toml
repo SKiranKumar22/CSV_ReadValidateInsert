@@ -1,0 +1,7 @@
+[MYSql]
+user = "root"
+password = "root"
+host = "192.168.140.54"
+port = 3306
+name = "go1_db"
+driver = "mysql"
